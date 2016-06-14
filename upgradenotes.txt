@@ -1,0 +1,63 @@
+1. Always start with prostream simulators built-in from 23 PS9K devices
+2. Start up each one
+3. Upgrade each catalog to latest NMX release. Make sure to change IP addresses
+4. Save each group seperately: Prostream, IPTV, ACP etc...
+5. 
+
+Check List
+
+* Prostream
+
+
+upgraded,05/05/2016  05:26 PM        92,082,102 NMX75PRMACE1NG16DEV800SER.hzp, IP Address changed
+upgraded,05/05/2016  02:23 PM        53,826,875 NMX75PRMACE1NG10DEV400SER.hzp, IP Address changed
+upgraded,05/05/2016  04:38 PM        76,654,965 NMX75PRMACE1NG12DEV600SER.hzp, IP Address changed
+              
+not upgraded, 10/13/2015  01:58 PM        21,955,792 NMX74PRMACE1NG10DEV10SER.hzp, IP Address changed
+not upgraded, 10/14/2015  05:59 PM        36,272,606 NMX74PRMACE1NG10DEV160SER.hzp, Needs change
+not upgraded, 10/13/2015  02:10 PM        22,326,599 NMX74PRMACE1NG10DEV20SER.hzp, Needs change
+not upgraded, 10/14/2015  03:39 PM        22,903,588 NMX74PRMACE1NG10DEV40SER.hzp, Needs change
+not upgraded, 10/14/2015  04:10 PM        23,603,303 NMX74PRMACE1NG10DEV80SER.hzp, Needs change
+upgraded, 05/04/2016  07:40 PM        58,343,470 NMX75PRMACE2NG20DEV400SER.hzp, Needs change
+upgraded, 05/04/2016  06:19 PM       107,196,299 NMX75PRMACE2NG20DEV600SER.hzp, IP Address changed
+upgraded, 05/04/2016  02:44 PM        49,913,370 NMX75PRMACE2NG20DEV800SER.hzp, Needs change
+        
+* ACP 
+
+
+not upgraded,10/21/2015  03:40 PM         6,422,869 NMX74ACPS11NG10DEV10SER.hzp, Needs change
+not upgraded,10/21/2015  03:57 PM         5,848,931 NMX74ACPS11NG10DEV20SER.hzp, Needs change
+not upgraded,10/21/2015  04:10 PM         7,693,740 NMX74ACPS11NG10DEV40SER.hzp, Needs change
+not upgraded,10/21/2015  04:24 PM         9,679,122 NMX74ACPS11NG10DEV80SER.hzp, Needs change
+not upgraded,10/21/2015  05:52 PM        10,878,404 NMX74ACPS11NG20DEV80SER.hzp, Needs change
+not upgraded,10/22/2015  03:31 PM        11,361,179 NMX74ACPS11NG40DEV80SER.hzp, Needs change
+not done,10/22/2015  04:43 PM        12,377,910 NMX74ACPS11NG80DEV80SER.hzp,
+
+
+
+* Juno
+
+not upgraded,11/25/2013  06:58 PM       176,590,470 NMX7_JUNO_1000Service4To1_AC.hzp
+            
+
+
+* IPTV 
+
+
+not upgraded,02/09/2015  12:44 PM        14,812,477 NMX73IPTV1NG10DEV20SER.hzp, Needs change
+not upgraded,02/09/2015  12:26 PM        14,550,788 NMX73IPTV1NG10DEV40SER.hzp, Needs change
+not upgraded,02/09/2015  11:42 AM        12,987,065 NMX73IPTV1NG10DEV80SER.hzp, Needs change
+not upgraded,03/11/2015  02:40 PM        24,028,394 NMX73IPTV2NG20DEV160SER.hzp, Needs change
+upgraded,05/08/2016  01:33 PM         5,162,503 NMX75IPTV1NG10DEV10SER.hzp, Needs change
+              
+
+
+
+Todo:
+
+1. Things to work on Algorithm for Time startup/shutdown (with Alarms/without Alarms)
+2. Need to get time with alarms and without alarms. Simple to do
+3. List types of alarms here...
+4. Integration of NG2 code. This can be secondary alarm (with all incorrect cards)
+5. 
+

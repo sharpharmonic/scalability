@@ -84,6 +84,7 @@ def Catalogs():
 print Catalogs()[0]
 name = Catalogs()[0].split('.')
 print name[0]
+'''
 Item = Catalogs()[0].replace("NG", ",NG,").replace("DEV", ',DEV,').replace("SER", ",SER,")
 Item2 = Item.split(",")
 print Item2[0]  # Type
@@ -93,6 +94,7 @@ print Item2[3]  # Dev
 print Item2[4]  # Service #
 print Item2[5]  # Service
 print Item2[6]
+'''
 
 #Report
 
@@ -126,14 +128,17 @@ def DomainStop():
         
 
 def DomainManager(Cat, sc):
-    tlist = []
-    Item = Cat.replace("NG", ",NG,").replace("DEV", ',DEV,').replace("SER", ",SER,")
-    Item2 = Item.split(",")
-    name = Item2[0] 
+    tlist = []  
+    #Item = Cat.replace("NG", ",NG,").replace("DEV", ',DEV,').replace("SER", ",SER,")
+    #Item2 = Item.split(",")
+    #name = Item2[0] 
+    name="Juno2"
     tlist.append(name)
-    Dev = Item2[2] 
+    #Dev = Item2[2] 
+    Dev='8'
     tlist.append("Dev|" + Dev)
-    Ser = Item2[4]
+    #Ser = Item2[4]
+    Ser='10000'
     tlist.append("Ser|" + Ser)
     cm = dm.Database.CatalogManagement 
     print "==open catalog"
@@ -269,6 +274,7 @@ def StopDesignerService(D):
         D.FlowView.deactivateService("Site - 1|NG - 1|New Service Plan")
     except:
         print "couldn't stop designer service single function"
+        time.sleep(60)
         pass 
         
 def StartDesignerService(D):
@@ -277,17 +283,18 @@ def StartDesignerService(D):
         D.FlowView.activateService("Site - 1|NG - 1|New Service Plan")
     except:
         print "coudn't start designer service single function"
+        time.sleep(60)
         pass
 
 if __name__=="__main__":
            
      
-    #Main Loop
-    for Cat in Catalogs():
+        #Main Loop
+        #for Cat in Catalogs():
         f=open("ScaleReport.txt","a")   
         #DomainManager(Cat)
-        #dmdeact = DomainManager(Catalogs()[0], 'DeactivateSC')
-        dmdeact = DomainManager(Cat, 'DeactivateSC')
+        dmdeact = DomainManager(Catalogs()[0], 'DeactivateSC')
+        #dmdeact = DomainManager(Cat, 'DeactivateSC')
         print dmdeact
         print "---start server for designer test"
         DomainStart()
@@ -321,8 +328,8 @@ if __name__=="__main__":
         print StopDMD
         print "Start Designer and Activate Service"
         StartDesignerService(designer)
-        #dmact = DomainManager(Catalogs()[0], 'ActivateSC')
-        dmact = DomainManager(Cat, 'ActivateSC')
+        dmact = DomainManager(Catalogs()[0], 'ActivateSC')
+        #dmact = DomainManager(Cat, 'ActivateSC')
         print "List with active services"
         print dmact
         DomainStart()

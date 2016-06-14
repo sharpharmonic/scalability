@@ -18,9 +18,10 @@ from NMX7.Designer import Designer
 
 
 print "read scalesettings.yml"
+'''
 with open('scalesettings.yml', 'r') as f:
     parms = yaml.load(f)
-nmxsrv = parms['nmxParms']['NMXaddr']
+#nmxsrv = parms['nmxParms']['NMXaddr']
 CatalogDirectory = parms['nmxParms']['CatalogPath']
 timeoutlimit = parms['nmxParms']['timeout']
 ExportSCPath = parms['nmxParms']['exportServiceMapPath']
@@ -29,15 +30,15 @@ Standard = parms['ExpectedTiming']
 killall = parms['killalldirectory']
 logdirectory = parms['logdirectory']
 logbackup = parms['logbackup']
-
+'''
 
 print "inst server"
-#nmxsrv="10.21.131.202"
-nmx = NMXServer(nmxsrv, True) # hats2
-
+nmxsrv="10.21.13.238"
+#nmx = NMXServer(nmxsrv, True) # hats2
+nmx = NMXServer(nmxsrv) # hats2
 dm = nmx.gui.DM # hats2
 print "launch domain manager"
-dm.launch() # hats2
+dm.launch(UserID='jrodgers', Passwd='P@55w0rd') # hats2
 
 #NMXconnect(nmxsrv)  # hats1
 #nmx=NMXServer()
@@ -84,6 +85,7 @@ def Catalogs():
 print Catalogs()[0]
 name = Catalogs()[0].split('.')
 print name[0]
+'''
 Item = Catalogs()[0].replace("NG", ",NG,").replace("DEV", ',DEV,').replace("SER", ",SER,")
 Item2 = Item.split(",")
 print Item2[0]  # Type
@@ -93,7 +95,7 @@ print Item2[3]  # Dev
 print Item2[4]  # Service #
 print Item2[5]  # Service
 print Item2[6]
-
+'''
 #Report
 
 report = []
@@ -127,13 +129,16 @@ def DomainStop():
 
 def DomainManager(Cat, sc):
     tlist = []
-    Item = Cat.replace("NG", ",NG,").replace("DEV", ',DEV,').replace("SER", ",SER,")
-    Item2 = Item.split(",")
-    name = Item2[0] 
+    #Item = Cat.replace("NG", ",NG,").replace("DEV", ',DEV,').replace("SER", ",SER,")
+    #Item2 = Item.split(",")
+    #name = Item2[0] 
+    name="Charter"
     tlist.append(name)
-    Dev = Item2[2] 
+    #Dev = Item2[2] 
+    Dev=10
     tlist.append("Dev|" + Dev)
-    Ser = Item2[4]
+    #Ser = Item2[4]
+    Ser=6308
     tlist.append("Ser|" + Ser)
     cm = dm.Database.CatalogManagement 
     print "==open catalog"
@@ -282,19 +287,19 @@ def StartDesignerService(D):
 if __name__=="__main__":
            
      
-    #Main Loop
-    for Cat in Catalogs():
-        f=open("ScaleReport.txt","a")   
+        #Main Loop
+        #for Cat in Catalogs():
+        f=open("CharterReport.txt","a")   
         #DomainManager(Cat)
-        #dmdeact = DomainManager(Catalogs()[0], 'DeactivateSC')
-        dmdeact = DomainManager(Cat, 'DeactivateSC')
+        dmdeact = DomainManager(Catalogs()[0], 'DeactivateSC')
+        #dmdeact = DomainManager(Cat, 'DeactivateSC')
         print dmdeact
         print "---start server for designer test"
         DomainStart()
         designer = nmx.gui.Designer # launch designer
         print "launch designer"     # launch designer
         try:
-            designer.launch()           # launch designer
+            designer.launch(UserID='jrodgers', Passwd='P@55w0rd')           # launch designer
         except:
             print "slow to launch designer But will pass just in case it did"
             time.sleep(10)
@@ -349,19 +354,5 @@ if __name__=="__main__":
         
         
         
-        '''
-        nmx = NMXServer(envData['NMX-1']['IPAddress'])
-        D = nmx.gui.Designer
-        D.launch()
-        SE = D.ServiceView.select(envData['NMX-1']['ServicePath'])
-        l.log(logger.INFO, msg="Activate Service")
-
-        try:
-            D.FlowView.activateService(envData['NMX-1']['ServicePath'])
-        except:
-            pass
-
-        l.log(logger.INFO, msg="Service View Activated")
-        '''
-    
+        
 

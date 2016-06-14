@@ -1,0 +1,43 @@
+(local)
+ Databases
+  CHARTERU745021600
+   Tables
+    dbo.Service_StreamRoute
+    
+
+(local)
+ Databases
+  CHARTERU745021600
+   Tables
+    dbo.Service_StreamRoute
+    
+
+
+SELECT COUNT(*) as Num_Service FROM [CHARTER].[dbo].[Service_StreamRoute]
+6038
+SELECT COUNT(*) as Num_Audio FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%Audio%')
+1753
+SELECT COUNT(*) as Num_Video FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%Video%')
+1148
+SELECT COUNT(*) as Num_VBI FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%VBI%')
+0
+SELECT COUNT(*) as Num_Vanc FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%VANC%')
+0
+SELECT COUNT(*) as Num_PMT FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%PMT%')
+1144
+SELECT COUNT(*) as Num_DPI FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%DPI%')
+654
+SELECT COUNT(*) as Num_PAT FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%PAT%')
+640
+SELECT COUNT(*) as Num_EMM FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%EMM%')
+0
+SELECT COUNT(*) as Num_SDT FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName LIKE '%SDT%') 
+590
+
+SELECT COUNT(*) as Num_Other FROM [CHARTER].[dbo].[Service_StreamRoute] where (ObjectName NOT LIKE '%Audio%') 
+AND (ObjectName NOT LIKE '%Video%')
+AND (ObjectName NOT LIKE '%PMT%')
+AND (ObjectName NOT LIKE '%DPI%')
+AND (ObjectName NOT LIKE '%PAT%')
+AND (ObjectName NOT LIKE '%SDT%')
+116
